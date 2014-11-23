@@ -1,0 +1,151 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+@import "_iconfont";
+
+	$link-color: #ec4f00;
+	$main-color-2: #a43b00;
+
+
+.cf:after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.cf {
+    display: inline-block;
+}
+ 
+html[xmlns] .cf {
+    display: block;
+}
+ 
+* html .cf {
+    height: 1%;
+}
+
+  html { 
+    background: #FFFAF2 url(../images/bg2.png) repeat top left; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 62.5%;
+    line-height: 1.5;
+    
+  }
+
+  body {
+    font-size: 1.4rem;
+    font-size: 15px;
+    font-family: Arial;
+  }
+
+  header {
+
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+  }
+
+  a {
+  	color: $link-color;
+
+  	&:hover {
+  		color: lighten($link-color, 10%);
+  	}
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  .logo-container {
+    text-align: center;
+  }
+
+  .navigation {
+
+  		$nav-bg: rgba(230, 230, 230, 0.6);
+
+  		background: $nav-bg;
+  		border-top: 1px solid #ccc;
+  		position: fixed;
+  		bottom: 0;
+  		width: 100%;
+
+
+  		li { 
+  			float: left;
+  			width: 25%;
+  			max-width: 140px;
+  			text-align: center;
+  		}
+
+  		a {
+  			color: #666;
+  			display: block;
+        font-size: 1.2rem;
+  			padding: 10px 0;
+  			text-decoration: none;
+
+  			&:hover {
+  				background: lighten($nav-bg, 10%);
+  			}
+  		}
+  }
+
+  #layout {
+
+    margin: 0 auto;
+    max-width: 960px;
+
+    > .inner {
+    	padding: 10px;
+    }
+  }
+
+  .meta {
+    color: #666;
+  }
+
+  .mt {
+    margin-top: 20px;
+  }
+
+  .l-plain {
+  	list-style: none;
+  }
+
+  .rounded {
+
+    @include border-radius(50%);
+  }
+
+  .post-date {
+    background: $main-color-2;
+    color: #fff;
+
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px;
+    height: 45px;
+    text-align: center;
+    width: 55px;
+
+    @include border-radius(50%);
+  }
