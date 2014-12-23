@@ -1,11 +1,14 @@
+---
+---
+
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
-@import "compass/reset";
-@import "compass/css3";
+@import "_variables";
+@import "_normalize";
 @import "_iconfont";
+
 
 	$link-color: #ec4f00;
 	$main-color-2: #a43b00;
@@ -41,13 +44,18 @@ html[xmlns] .cf {
   }
 
   body {
-    font-size: 1.4rem;
-    font-size: 15px;
-    font-family: Arial;
+    color: #303030;
+    font-size: 16px;
+    font-family: 'Fira Sans', Arial;
   }
 
   header {
 
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
   }
 
   h1 {
@@ -55,7 +63,7 @@ html[xmlns] .cf {
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   p {
@@ -78,9 +86,23 @@ html[xmlns] .cf {
     text-align: center;
   }
 
+  .profile {
+    border: 1px solid rgb(236, 79, 0);
+    box-sizing: border-box;
+  }
+
   .navigation {
 
-  		$nav-bg: rgba(230, 230, 230, 0.6);
+  		$nav-bg: rgba(230, 230, 230, 0.9);
+      
+
+      font-size: 14px;
+      
+
+      .nav-icon {
+        display: block;
+        font-size: 2rem;
+      }
 
   		background: $nav-bg;
   		border-top: 1px solid #ccc;
@@ -92,30 +114,87 @@ html[xmlns] .cf {
   		li { 
   			float: left;
   			width: 25%;
-  			max-width: 140px;
   			text-align: center;
   		}
 
   		a {
   			color: #666;
   			display: block;
-        font-size: 1.2rem;
+        outline: none;
   			padding: 10px 0;
   			text-decoration: none;
 
+        &:focus,
   			&:hover {
-  				background: lighten($nav-bg, 10%);
+  				background: lighten($nav-bg, 5%);
   			}
+
+        &.is-active {
+          background: #fff;
+        }
   		}
+
+      @media(min-width: $nav-breakpoint) {
+
+          border-right: 1px solid #ccc;
+          left: 0;
+          height: 100%;
+          width: $nav-width;
+
+          ul {
+            margin-top: 20px;
+          }
+
+          li { 
+
+            border-bottom: 1px solid #ccc;
+            float: none;
+            width: 100%;
+            max-width: none;
+            text-align: left;
+
+            a {
+              padding: 15px 20px;
+            }
+          }
+
+          .nav-icon {
+            display: inline-block;
+            margin-right: 5px;
+            position: relative;
+            top: 4px;
+          }
+      }
   }
+
+
+  #sidebarlogo {
+
+    display: none;
+
+    @media(min-width: $nav-breakpoint) {
+      display: block;
+      opacity: 0.3;
+    }
+    
+  }
+
 
   #layout {
 
     margin: 0 auto;
-    max-width: 960px;
+
+    max-width: 700px;
 
     > .inner {
     	padding: 10px;
+
+       padding-bottom: 100px;
+    }
+
+    @media(min-width: $nav-breakpoint) {
+      padding-left: $nav-width + 10px;
+
     }
   }
 
@@ -127,13 +206,17 @@ html[xmlns] .cf {
     margin-top: 20px;
   }
 
+  .c {
+    text-align: center;
+  }
+
   .l-plain {
   	list-style: none;
   }
 
   .rounded {
 
-    @include border-radius(50%);
+    border-radius: 50%;
   }
 
   .post-date {
@@ -147,5 +230,5 @@ html[xmlns] .cf {
     text-align: center;
     width: 55px;
 
-    @include border-radius(50%);
+    border-radius: 50%;
   }

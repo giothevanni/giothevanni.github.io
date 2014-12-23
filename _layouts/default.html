@@ -12,23 +12,37 @@
 
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
+        <link rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css">
 
         <!-- Custom CSS -->
-        <link media="screen, projection" rel="stylesheet"  href="/css/screen.css" type="text/css" /> 
+        <link media="screen, projection" rel="stylesheet"  href="/css/main.css" type="text/css" /> 
 
     </head>
     <body>
           <nav class="navigation ">
+            <div id="sidebarlogo">
+              <div class="mt c">
+                <a href="/">
+                  <svg id="sidebarlogoSvg" width="70" height="70">
+                    <image xlink:href="/logo-original.svg" width="70" height="70"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
             <ul class="l-plain">
-              <li><a href="/"><i class="icon-home"></i> Home</a></li>
-              <li><a href="/about.html"><i class="icon-profile"></i> About me</a></li>
-              <li><a href="/">CV</a></li>
-              <li><a href="/blog.html">Blog</a></li>
+              {% for link in site.navigation %}
+                  {% assign current = nil %}
+                  {% if page.url contains link.url %}
+                      {% assign current = 'is-active' %}
+                  {% endif %}
+                  <li>
+                      <a href="{{ link.url }}" class="{{ current }}"><i class="nav-icon icon-{{ link.icon }}"></i> {{ link.title }}</a>
+                  </li>
+              {% endfor %}
             </ul>
           </nav>
           <div id="layout">
-
-
             <div class="inner">
               {{ content }}
             </div> <!-- .inner -->

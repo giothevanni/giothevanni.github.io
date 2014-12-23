@@ -1,3 +1,21 @@
 name: Giothevannis Site
 markdown: redcarpet
 highlighter: true
+
+sass:
+    sass_dir: _sass
+
+
+navigation:
+ - title: Home
+   url: /index.html
+   icon: home
+ - title: About
+   url: /about.html
+   icon: user
+ - title: CV
+   url: /cv.html
+   icon: profile
+ - title: Blog
+   url: /blog.html
+   icon: quill
